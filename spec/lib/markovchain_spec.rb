@@ -14,7 +14,7 @@ describe Markovchain do
       context 'feeded "a"' do
         before { chain.feed("a") }
 
-        it { pending; should == {nil => {"a" => 1}, "a" => {nil => 1}} }
+        it { should == {nil => {"a" => 1}, "a" => {nil => 1}} }
       end
     end
   end
