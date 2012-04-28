@@ -14,7 +14,12 @@ describe Markovchain do
       context 'feeded "a"' do
         before { chain.feed("a") }
 
-        it { should == {nil => {"a" => 1}, "a" => {nil => 1}} }
+        it {
+          should == {
+            nil => {"a" => 1},
+            "a" => {nil => 1},
+          }
+        }
       end
 
       context 'feeded "ab"' do
@@ -24,7 +29,7 @@ describe Markovchain do
           should == {
             nil => {"a" => 1},
             "a" => {"b" => 1},
-            "b" => {nil => 1}
+            "b" => {nil => 1},
           }
         }
       end
