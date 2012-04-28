@@ -12,6 +12,7 @@ class Markovchain
     end
 
     def feed_char(char)
+      @prev_phrase = char
     end
   end
 end

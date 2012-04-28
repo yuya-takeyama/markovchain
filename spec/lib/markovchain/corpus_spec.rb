@@ -11,6 +11,12 @@ describe Markovchain::Corpus do
       context 'by default' do
         it { should == Markovchain::NON_WORD }
       end
+
+      context 'feeded "a"' do
+        before { corpus.feed_char('a') }
+
+        it { should == 'a' }
+      end
     end
   end
 end
