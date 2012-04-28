@@ -2,8 +2,8 @@
 require 'markovchain/corpus'
 
 describe Markovchain::Corpus do
-  describe '#prev_char' do
-    subject { corpus.prev_char }
+  describe '#prev_phrase' do
+    subject { corpus.prev_phrase }
 
     context '1-gram' do
       let(:corpus) { Markovchain::Corpus.new 1 }
