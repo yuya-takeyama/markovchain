@@ -1,1 +1,0 @@
-autoload :Markovchain, 'markovchain'
