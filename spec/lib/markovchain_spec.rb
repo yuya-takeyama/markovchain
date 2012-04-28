@@ -22,6 +22,19 @@ describe Markovchain do
 
         it { should == {nil => {"a" => 1}, "a" => {"b" => 1}, "b" => {nil => 1}} }
       end
+
+      context 'feeded "abcde"' do
+        before { chain.feed("abcde") }
+
+        it { should == {
+          nil => {"a" => 1},
+          "a" => {"b" => 1},
+          "b" => {"c" => 1},
+          "c" => {"d" => 1},
+          "d" => {"e" => 1},
+          "e" => {nil => 1},
+        } }
+      end
     end
   end
 end
