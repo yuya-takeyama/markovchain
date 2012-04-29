@@ -2,8 +2,6 @@
 require 'markovchain'
 
 describe Markovchain do
-  NON_WORD = Markovchain::NON_WORD
-
   describe '#corpus' do
     subject { chain.corpus }
 

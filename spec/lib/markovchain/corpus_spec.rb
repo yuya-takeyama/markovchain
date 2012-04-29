@@ -2,6 +2,8 @@
 require 'markovchain/corpus'
 
 describe Markovchain::Corpus do
+  NON_WORD = Markovchain::NON_WORD
+
   describe '#prev_phrase' do
     subject { corpus.prev_phrase }
 
@@ -16,6 +18,20 @@ describe Markovchain::Corpus do
         before { corpus.feed_char('a') }
 
         it { should == 'a' }
+      end
+    end
+
+    context '2-gram' do
+      let(:corpus) { Markovchain::Corpus.new 2 }
+
+      context 'by default' do
+        it { should == NON_WORD * 2 }
+      end
+
+      context 'feeded "a"' do
+        before { corpus.feed_char('a') }
+
+        it { should == NON_WORD + 'a' }
       end
     end
   end
