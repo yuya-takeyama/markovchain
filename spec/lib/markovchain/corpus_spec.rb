@@ -54,6 +54,8 @@ describe Markovchain::Corpus do
       end
 
       context 'feeded "a"' do
+        before { corpus.feed('a') }
+
         it {
           should == {
             non_word => {"a" => 1},
