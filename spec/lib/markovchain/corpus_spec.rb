@@ -44,4 +44,16 @@ describe Markovchain::Corpus do
       end
     end
   end
+
+  describe '#storage' do
+    subject { corpus.storage }
+
+    context '1-gram' do
+      let(:corpus) { Markovchain::Corpus.new 1 }
+
+      context 'by default' do
+        it { should == {} }
+      end
+    end
+  end
 end

@@ -2,10 +2,11 @@ require 'markovchain'
 
 class Markovchain
   class Corpus
-    attr_reader :prev_phrase
+    attr_reader :prev_phrase, :storage
 
     def initialize(gram)
       @gram = gram
+      @storage = {}
       @prev_phrase = NON_WORD * gram
     end
 
