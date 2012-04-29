@@ -59,7 +59,19 @@ describe Markovchain::Corpus do
         it {
           should == {
             non_word => {"a" => 1},
-            "a" => {non_word => 1}
+            "a" => {non_word => 1},
+          }
+        }
+      end
+
+      context 'feeded "ab"' do
+        before { corpus.feed('ab') }
+
+        it {
+          should == {
+            non_word => {'a' => 1},
+            'a' => {'b' => 1},
+            'b' => {non_word => 1},
           }
         }
       end
