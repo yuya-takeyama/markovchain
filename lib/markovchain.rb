@@ -1,7 +1,7 @@
 class Markovchain
   attr_reader :corpus
 
-  NON_WORD = nil
+  NON_WORD = "\0"
 
   def initialize(gram)
     @gram = gram

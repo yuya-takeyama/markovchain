@@ -2,6 +2,8 @@
 require 'markovchain'
 
 describe Markovchain do
+  NON_WORD = Markovchain::NON_WORD
+
   describe '#corpus' do
     subject { chain.corpus }
 
@@ -17,8 +19,8 @@ describe Markovchain do
 
         it {
           should == {
-            nil => {"a" => 1},
-            "a" => {nil => 1},
+            NON_WORD => {"a" => 1},
+            "a" => {NON_WORD => 1},
           }
         }
       end
@@ -28,9 +30,9 @@ describe Markovchain do
 
         it {
           should == {
-            nil => {"a" => 1},
+            NON_WORD => {"a" => 1},
             "a" => {"b" => 1},
-            "b" => {nil => 1},
+            "b" => {NON_WORD => 1},
           }
         }
       end
@@ -40,12 +42,12 @@ describe Markovchain do
 
         it {
           should == {
-            nil => {"a" => 1},
+            NON_WORD => {"a" => 1},
             "a" => {"b" => 1},
             "b" => {"c" => 1},
             "c" => {"d" => 1},
             "d" => {"e" => 1},
-            "e" => {nil => 1},
+            "e" => {NON_WORD => 1},
           }
         }
       end
