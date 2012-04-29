@@ -33,6 +33,15 @@ describe Markovchain::Corpus do
 
         it { should == NON_WORD + 'a' }
       end
+
+      context 'feeded "a", "b"' do
+        before {
+          corpus.feed_char('a')
+          corpus.feed_char('b')
+        }
+
+        it { should == 'ab' }
+      end
     end
   end
 end
