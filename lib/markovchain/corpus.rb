@@ -18,13 +18,19 @@ class Markovchain
     end
 
     def feed_char(char)
-      @storage[@prev_phrase] = {char => 1}
+      increment(char)
       @prev_phrase = @prev_phrase[1, @gram - 1] + char
     end
 
     private
+    def increment(char)
+      @storage[@prev_phrase] = {}      unless @storage.key? @prev_phrase
+      @storage[@prev_phrase][char] = 0 unless @storage[@prev_phrase].key? char
+      @storage[@prev_phrase][char] += 1
+    end
+
     def finalize_feeding
-      @storage[@prev_phrase] = {NON_WORD => 1}
+      increment(NON_WORD)
     end
   end
 end
