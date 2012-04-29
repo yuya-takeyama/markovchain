@@ -75,6 +75,19 @@ describe Markovchain::Corpus do
           }
         }
       end
+
+      context 'feeded "abc"' do
+        before { corpus.feed('abc') }
+
+        it {
+          should == {
+            non_word => {'a' => 1},
+            'a' => {'b' => 1},
+            'b' => {'c' => 1},
+            'c' => {non_word => 1},
+          }
+        }
+      end
     end
   end
 end
