@@ -3,7 +3,7 @@ require 'markovchain'
 
 describe Markovchain do
   describe '#corpus' do
-    subject { chain.corpus }
+    subject { chain.corpus.storage }
 
     context 'with 1-gram' do
       let(:chain) { Markovchain.new 1 }

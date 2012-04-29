@@ -1,19 +1,15 @@
+require 'markovchain/corpus'
+
 class Markovchain
   attr_reader :corpus
 
   NON_WORD = "\0"
 
   def initialize(gram)
-    @gram = gram
-    @corpus = {}
-    @prev_char = NON_WORD
+    @corpus = Markovchain::Corpus.new gram
   end
 
   def feed(phrase)
-    phrase.each_char do |char|
-      @corpus[@prev_char] = {char => 1}
-      @prev_char = char
-    end
-    @corpus[@prev_char] = {NON_WORD => 1}
+    @corpus.feed phrase
   end
 end
