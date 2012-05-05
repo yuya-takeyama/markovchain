@@ -5,8 +5,8 @@ describe Markovchain::Corpus do
   describe '#storage' do
     subject { corpus.storage.to_h }
 
-    context '1-gram' do
-      let(:corpus) { Markovchain::Corpus.new 1 }
+    context 'when :state_size = 1' do
+      let(:corpus) { Markovchain::Corpus.new(:state_size => 1) }
 
       context 'by default' do
         it { should == {} }
