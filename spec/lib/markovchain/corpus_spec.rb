@@ -2,47 +2,6 @@
 require 'markovchain/corpus'
 
 describe Markovchain::Corpus do
-  describe '#prev_sequence' do
-    subject { corpus.prev_sequence }
-
-    context '1-gram' do
-      let(:corpus) { Markovchain::Corpus.new 1 }
-
-      context 'by default' do
-        it { should == non_word }
-      end
-
-      context 'seeded "a"' do
-        before { corpus.seed_token('a') }
-
-        it { should == 'a' }
-      end
-    end
-
-    context '2-gram' do
-      let(:corpus) { Markovchain::Corpus.new 2 }
-
-      context 'by default' do
-        it { should == non_word * 2 }
-      end
-
-      context 'seeded "a"' do
-        before { corpus.seed_token('a') }
-
-        it { should == non_word + 'a' }
-      end
-
-      context 'seeded "a", "b"' do
-        before {
-          corpus.seed_token('a')
-          corpus.seed_token('b')
-        }
-
-        it { should == 'ab' }
-      end
-    end
-  end
-
   describe '#storage' do
     subject { corpus.storage }
 
