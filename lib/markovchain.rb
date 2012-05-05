@@ -3,7 +3,7 @@ require 'markovchain/corpus'
 class Markovchain
   attr_reader :corpus
 
-  NON_WORD = "\0"
+  NON_WORD = "\t"
 
   def initialize(gram)
     @gram   = gram
