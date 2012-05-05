@@ -2,8 +2,8 @@
 require 'markovchain/corpus'
 
 describe Markovchain::Corpus do
-  describe '#prev_phrase' do
-    subject { corpus.prev_phrase }
+  describe '#prev_sequence' do
+    subject { corpus.prev_sequence }
 
     context '1-gram' do
       let(:corpus) { Markovchain::Corpus.new 1 }
@@ -13,7 +13,7 @@ describe Markovchain::Corpus do
       end
 
       context 'seeded "a"' do
-        before { corpus.seed_char('a') }
+        before { corpus.seed_token('a') }
 
         it { should == 'a' }
       end
@@ -27,15 +27,15 @@ describe Markovchain::Corpus do
       end
 
       context 'seeded "a"' do
-        before { corpus.seed_char('a') }
+        before { corpus.seed_token('a') }
 
         it { should == non_word + 'a' }
       end
 
       context 'seeded "a", "b"' do
         before {
-          corpus.seed_char('a')
-          corpus.seed_char('b')
+          corpus.seed_token('a')
+          corpus.seed_token('b')
         }
 
         it { should == 'ab' }

@@ -2,31 +2,31 @@ require 'markovchain'
 
 class Markovchain
   class Corpus
-    attr_reader :prev_phrase, :storage
+    attr_reader :prev_sequence, :storage
 
     def initialize(gram)
       @gram = gram
       @storage = {}
-      @prev_phrase = NON_WORD * gram
+      @prev_sequence = NON_WORD * gram
     end
 
-    def seed(phrase)
-      phrase.each_char do |char|
-        seed_char(char)
+    def seed(sequence)
+      sequence.each_char do |token|
+        seed_token(token)
       end
       finalize_seeding
     end
 
-    def seed_char(char)
-      increment(char)
-      @prev_phrase = @prev_phrase[1, @gram - 1] + char
+    def seed_token(token)
+      increment(token)
+      @prev_sequence = @prev_sequence[1, @gram - 1] + token
     end
 
     private
-    def increment(char)
-      @storage[@prev_phrase] = {}      unless @storage.key? @prev_phrase
-      @storage[@prev_phrase][char] = 0 unless @storage[@prev_phrase].key? char
-      @storage[@prev_phrase][char] += 1
+    def increment(token)
+      @storage[@prev_sequence] = {}      unless @storage.key? @prev_sequence
+      @storage[@prev_sequence][token] = 0 unless @storage[@prev_sequence].key? token
+      @storage[@prev_sequence][token] += 1
     end
 
     def finalize_seeding
