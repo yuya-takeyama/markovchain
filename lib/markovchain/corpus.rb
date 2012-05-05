@@ -22,6 +22,10 @@ class Markovchain
       @prev_sequence = @prev_sequence[1, @gram - 1] + token
     end
 
+    def tokens_after(sequence)
+      @storage[sequence] || {}
+    end
+
     private
     def increment(token)
       @storage[@prev_sequence] = {}      unless @storage.key? @prev_sequence
