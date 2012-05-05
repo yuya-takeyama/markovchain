@@ -3,11 +3,14 @@ require 'markovchain/corpus'
 class Markovchain
   attr_reader :corpus
 
-  NON_WORD = "\0"
+  NON_WORD = "\t"
 
-  def initialize(gram)
-    @gram   = gram
-    @corpus = Markovchain::Corpus.new gram
+  def initialize(options = {})
+    @state_size = options[:state_size] || 2
+    @corpus     = Corpus.new(
+      :state_size => @state_size,
+      :storage    => options[:storage] || nil,
+    )
   end
 
   def seed(sequence)
@@ -17,11 +20,11 @@ class Markovchain
   def random_sequence
     result = ''
     token = nil
-    prev_sequence = NON_WORD * @gram
+    prev_sequence = NON_WORD * @state_size
     while token != NON_WORD
       token = random_pick(@corpus.tokens_after(prev_sequence))
       result += token unless token == NON_WORD
-      prev_sequence = prev_sequence[1, @gram - 1] + token
+      prev_sequence = prev_sequence[1, @state_size - 1] + token
     end
     result
   end

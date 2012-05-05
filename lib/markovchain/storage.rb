@@ -1,0 +1,2 @@
+module Markovchain::Storage
+end
