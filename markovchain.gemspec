@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["yuyat"]
   s.date = "2012-05-05"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Random text generator using Markov Chain algorithm."
   s.email = "sign.of.the.wolf.pentagram@mgmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Random text generator using Markov Chain algorithm."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
