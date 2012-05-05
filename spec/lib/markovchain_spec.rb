@@ -3,10 +3,10 @@ require 'markovchain'
 
 describe Markovchain do
   describe '#corpus' do
-    subject { chain.corpus.storage }
+    subject { chain.corpus.storage.to_h }
 
-    context 'with 1-gram' do
-      let(:chain) { Markovchain.new 1 }
+    context 'when :state_size = 1' do
+      let(:chain) { Markovchain.new :state_size => 1 }
 
       context 'by default' do
         it { should == {} }
