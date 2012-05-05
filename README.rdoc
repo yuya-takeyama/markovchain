@@ -1,6 +1,6 @@
 = markovchain
 
-Description goes here.
+Random text generator using Markov Chain algorithm.
 
 == Contributing to markovchain
  
@@ -14,6 +14,5 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2012 yuyat. See LICENSE.txt for
+Copyright (c) 2012 Yuya Takeyama. See LICENSE.txt for
 further details.
-
