@@ -7,10 +7,10 @@ class Markovchain
     def initialize(gram)
       @gram = gram
       @storage = {}
-      @prev_sequence = NON_WORD * gram
     end
 
     def seed(sequence)
+      @prev_sequence = NON_WORD * @gram
       sequence.each_char do |token|
         seed_token(token)
       end

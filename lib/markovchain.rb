@@ -19,11 +19,11 @@ class Markovchain
     token = nil
     prev_sequence = NON_WORD * @gram
     while token != NON_WORD
-      p prev_sequence
       token = random_pick(@corpus.tokens_after(prev_sequence))
       result += token unless token == NON_WORD
       prev_sequence = prev_sequence[1, @gram - 1] + token
     end
+    result
   end
 
   private
