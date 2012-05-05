@@ -10,14 +10,14 @@ class Markovchain
       @prev_phrase = NON_WORD * gram
     end
 
-    def feed(phrase)
+    def seed(phrase)
       phrase.each_char do |char|
-        feed_char(char)
+        seed_char(char)
       end
-      finalize_feeding
+      finalize_seeding
     end
 
-    def feed_char(char)
+    def seed_char(char)
       increment(char)
       @prev_phrase = @prev_phrase[1, @gram - 1] + char
     end
@@ -29,7 +29,7 @@ class Markovchain
       @storage[@prev_phrase][char] += 1
     end
 
-    def finalize_feeding
+    def finalize_seeding
       increment(NON_WORD)
     end
   end

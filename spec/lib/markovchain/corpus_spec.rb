@@ -12,8 +12,8 @@ describe Markovchain::Corpus do
         it { should == non_word }
       end
 
-      context 'feeded "a"' do
-        before { corpus.feed_char('a') }
+      context 'seeded "a"' do
+        before { corpus.seed_char('a') }
 
         it { should == 'a' }
       end
@@ -26,16 +26,16 @@ describe Markovchain::Corpus do
         it { should == non_word * 2 }
       end
 
-      context 'feeded "a"' do
-        before { corpus.feed_char('a') }
+      context 'seeded "a"' do
+        before { corpus.seed_char('a') }
 
         it { should == non_word + 'a' }
       end
 
-      context 'feeded "a", "b"' do
+      context 'seeded "a", "b"' do
         before {
-          corpus.feed_char('a')
-          corpus.feed_char('b')
+          corpus.seed_char('a')
+          corpus.seed_char('b')
         }
 
         it { should == 'ab' }
@@ -53,8 +53,8 @@ describe Markovchain::Corpus do
         it { should == {} }
       end
 
-      context 'feeded "a"' do
-        before { corpus.feed('a') }
+      context 'seeded "a"' do
+        before { corpus.seed('a') }
 
         it {
           should == {
@@ -64,8 +64,8 @@ describe Markovchain::Corpus do
         }
       end
 
-      context 'feeded "ab"' do
-        before { corpus.feed('ab') }
+      context 'seeded "ab"' do
+        before { corpus.seed('ab') }
 
         it {
           should == {
@@ -76,8 +76,8 @@ describe Markovchain::Corpus do
         }
       end
 
-      context 'feeded "abc"' do
-        before { corpus.feed('abc') }
+      context 'seeded "abc"' do
+        before { corpus.seed('abc') }
 
         it {
           should == {
@@ -89,8 +89,8 @@ describe Markovchain::Corpus do
         }
       end
 
-      context 'feeded "aaa"' do
-        before { corpus.feed('aaa') }
+      context 'seeded "aaa"' do
+        before { corpus.seed('aaa') }
 
         it {
           should == {

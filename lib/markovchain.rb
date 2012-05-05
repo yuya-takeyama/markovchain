@@ -9,7 +9,7 @@ class Markovchain
     @corpus = Markovchain::Corpus.new gram
   end
 
-  def feed(phrase)
-    @corpus.feed phrase
+  def seed(phrase)
+    @corpus.seed phrase
   end
 end

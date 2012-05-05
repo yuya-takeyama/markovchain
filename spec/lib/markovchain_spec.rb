@@ -12,8 +12,8 @@ describe Markovchain do
         it { should == {} }
       end
 
-      context 'feeded "a"' do
-        before { chain.feed("a") }
+      context 'seeded "a"' do
+        before { chain.seed("a") }
 
         it {
           should == {
@@ -23,8 +23,8 @@ describe Markovchain do
         }
       end
 
-      context 'feeded "ab"' do
-        before { chain.feed("ab") }
+      context 'seeded "ab"' do
+        before { chain.seed("ab") }
 
         it {
           should == {
@@ -35,8 +35,8 @@ describe Markovchain do
         }
       end
 
-      context 'feeded "abcde"' do
-        before { chain.feed("abcde") }
+      context 'seeded "abcde"' do
+        before { chain.seed("abcde") }
 
         it {
           should == {
