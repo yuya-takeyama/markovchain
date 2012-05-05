@@ -1,8 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    algerb (0.0.3)
-      thor
     diff-lcs (1.1.3)
     ffi (1.0.11)
     git (1.2.5)
@@ -39,7 +37,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  algerb
   bundler (~> 1.1.0)
   guard-rspec
   jeweler (~> 1.8.3)
