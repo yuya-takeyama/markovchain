@@ -3,7 +3,7 @@ require 'markovchain/corpus'
 
 describe Markovchain::Corpus do
   describe '#storage' do
-    subject { corpus.storage }
+    subject { corpus.storage.to_h }
 
     context '1-gram' do
       let(:corpus) { Markovchain::Corpus.new 1 }

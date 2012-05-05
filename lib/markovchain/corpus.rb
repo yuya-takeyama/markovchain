@@ -1,12 +1,13 @@
 require 'markovchain'
+require 'markovchain/storage/memory'
 
 class Markovchain
   class Corpus
     attr_reader :prev_sequence, :storage
 
-    def initialize(gram)
+    def initialize(gram, options = {})
       @gram = gram
-      @storage = {}
+      @storage = options[:storage] || ::Markovchain::Storage::Memory.new
     end
 
     def seed(sequence)
@@ -23,18 +24,16 @@ class Markovchain
     end
 
     def tokens_after(sequence)
-      @storage[sequence] || {}
+      @storage.tokens_after(sequence)
     end
 
     private
     def increment(token)
-      @storage[@prev_sequence] = {}      unless @storage.key? @prev_sequence
-      @storage[@prev_sequence][token] = 0 unless @storage[@prev_sequence].key? token
-      @storage[@prev_sequence][token] += 1
+      @storage.increment(@prev_sequence, token)
     end
 
     def finalize_seeding
-      increment(NON_WORD)
+      @storage.increment(@prev_sequence, NON_WORD)
     end
   end
 end
