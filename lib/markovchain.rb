@@ -3,7 +3,7 @@ require 'markovchain/corpus'
 class Markovchain
   attr_reader :corpus
 
-  NON_WORD = "\t"
+  NON_WORD = "\0"
 
   def initialize(options = {})
     @state_size = options[:state_size] || 2
